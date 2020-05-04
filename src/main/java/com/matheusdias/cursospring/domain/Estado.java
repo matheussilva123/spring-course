@@ -1,5 +1,6 @@
 package com.matheusdias.cursospring.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.context.annotation.EnableLoadTimeWeaving;
 
 import javax.persistence.Entity;
@@ -21,6 +22,8 @@ public class Estado implements Serializable {
     private Integer id;
     private String name;
 
+
+    @JsonBackReference
     @OneToMany(mappedBy = "estado")
     private List<Cidade> cidades = new ArrayList<>();
 
