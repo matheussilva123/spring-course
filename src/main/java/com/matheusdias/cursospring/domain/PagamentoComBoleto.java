@@ -1,5 +1,6 @@
 package com.matheusdias.cursospring.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.matheusdias.cursospring.domain.enums.EstadoPagamento;
 
 import javax.persistence.Entity;
@@ -10,7 +11,10 @@ public class PagamentoComBoleto extends Pagamento {
     private static final long serialVersionUID = 1L;
 
 
+    @JsonFormat(locale = "dd/MM/yyyy")
     private Date dataPagamento;
+
+    @JsonFormat(locale = "dd/MM/yyyy HH:mm")
     private Date dataVencimento;
 
 
