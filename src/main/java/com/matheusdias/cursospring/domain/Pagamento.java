@@ -1,6 +1,6 @@
 package com.matheusdias.cursospring.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.matheusdias.cursospring.domain.enums.EstadoPagamento;
 
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ public abstract class Pagamento implements Serializable {
     private Integer id;
     private Integer estado;
 
-    @JsonBackReference
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "pedido_id")
     @MapsId

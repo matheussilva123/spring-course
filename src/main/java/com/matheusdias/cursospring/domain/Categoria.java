@@ -1,6 +1,5 @@
 package com.matheusdias.cursospring.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +21,6 @@ public class Categoria implements Serializable {
     private Integer id;
     private String name;
 
-    @JsonManagedReference
     @ManyToMany(mappedBy = "categoriaList")
     private List<Produto> produtos = new ArrayList<>();
 
