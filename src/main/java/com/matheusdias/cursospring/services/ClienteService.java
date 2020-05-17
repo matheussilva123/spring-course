@@ -59,6 +59,7 @@ public class ClienteService {
 
     private void updateData(Cliente newObj, Cliente obj) {
         newObj.setName(obj.getName());
+        newObj.setEmail(obj.getEmail());
     }
 
 

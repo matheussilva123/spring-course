@@ -1,6 +1,7 @@
 package com.matheusdias.cursospring.services;
 
 import com.matheusdias.cursospring.domain.Categoria;
+import com.matheusdias.cursospring.domain.Cliente;
 import com.matheusdias.cursospring.dto.CategoriaDTO;
 import com.matheusdias.cursospring.repositories.CategoriaRepository;
 import com.matheusdias.cursospring.services.exceptions.DataIntegrityException;
@@ -33,7 +34,8 @@ public class CategoriaService {
     }
 
     public Categoria update(Categoria obj) {
-        find(obj.getId());
+        Categoria newObj = find(obj.getId());
+        updateData(newObj, obj);
         return repo.save(obj);
     }
 
@@ -60,5 +62,10 @@ public class CategoriaService {
     public Categoria fromDTO(CategoriaDTO objDTO) {
         return new Categoria(objDTO.getId(), objDTO.getName());
     }
+
+    private void updateData(Categoria newObj, Categoria obj) {
+        newObj.setName(obj.getName());
+    }
+
 
 }
