@@ -1,6 +1,7 @@
 package com.matheusdias.cursospring.services;
 
 import com.matheusdias.cursospring.domain.Categoria;
+import com.matheusdias.cursospring.dto.CategoriaDTO;
 import com.matheusdias.cursospring.repositories.CategoriaRepository;
 import com.matheusdias.cursospring.services.exceptions.DataIntegrityException;
 import com.matheusdias.cursospring.services.exceptions.ObjectNotFoundException;
@@ -54,6 +55,10 @@ public class CategoriaService {
 
         PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
         return repo.findAll(pageRequest);
+    }
+
+    public Categoria fromDTO(CategoriaDTO objDTO) {
+        return new Categoria(objDTO.getId(), objDTO.getName());
     }
 
 }
