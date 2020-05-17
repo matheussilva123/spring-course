@@ -50,7 +50,7 @@ public class Cliente implements Serializable {
         this.name = name;
         this.email = email;
         this.CpfOuCnpj = cpfOuCnpj;
-        this.tipo = tipo.getCod();
+        this.tipo = (tipo == null) ? null : tipo.getCod();
     }
 
     public Integer getId() {
@@ -65,7 +65,7 @@ public class Cliente implements Serializable {
         return name;
     }
 
-    public void setNome(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
